@@ -1,54 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Login Page</title>
-    <style>
-      body {
-        background-color: #F9F9F9;
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      
-      h1 {
-        color: #333333;
-        margin-top: 50px;
-      }
-      
-      form {
-        margin-top: 50px;
-      }
-      
-      input[type=text], input[type=password] {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #CCCCCC;
-        margin-bottom: 20px;
-        font-size: 16px;
-      }
-      
-      input[type=submit] {
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #4CAF50;
-        color: #FFFFFF;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      
-      input[type=submit]:hover {
-        background-color: #3E8E41;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Login Page</h1>
-    <form method="post">
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" name="username"><br>
-      <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password"><br>
-      <input type="submit" value="Login">
-    </form>
-  </body>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <form action="login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </body>
 </html>
