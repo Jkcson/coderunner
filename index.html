@@ -1,20 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-  </head>
-  <body>
-    <form id="login-form" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      <br>
-      <input type="submit" value="Login">
-    </form>
-    <div id="login-message"></div>
-    <script src="login.js"></script>
-  </body>
-</html>
+
+<head>
+  <title>Login Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Center the form on the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+    }
+    
+    /* Style the input fields */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    
+    /* Style the submit button */
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Add a hover effect for buttons */
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+    
+    /* Change the color of the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+    
+    /* Add a hover effect for buttons */
+    .cancelbtn:hover {
+      background-color: #a6382e;
+    }
+    
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn,
+    .signupbtn {
+      float: left;
+      width: 50%;
+    }
+    
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="login-form" method="post">
+    <div class="container">
+      <h1>Login</h1>
+      <hr>
+
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <div class="clearfix">
+        <input type="submit" value="Login">
+      </div>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          window.location.href = "homepage.html";
+        } else if (this.readyState == 4 && this.status == 401) {
+          alert("Incorrect username or password.");
+        }
+      };
+      xhr.open("POST", "https://cors-anywhere.herokuapp.com/https://example.com/
