@@ -5,16 +5,24 @@
   </head>
   <body>
     <h1>Login Page</h1>
-    {% if error_message %}
-      <p><strong>{{ error_message }}</strong></p>
-    {% endif %}
-    <form method="post">
-      {% csrf_token %}
+    <form>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username"><br><br>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password"><br><br>
-      <input type="submit" value="Login">
+      <input type="button" value="Login" onclick="login()">
     </form>
+    <script>
+      function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "yourusername" && password === "yourpassword") {
+          window.location.href = "newpage.html";
+        } else {
+          alert("Invalid username or password. Please try again.");
+        }
+      }
+    </script>
   </body>
 </html>
